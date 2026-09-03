@@ -50,3 +50,76 @@ for name in students:
         top_name = name
 
 print("Student with the highest mark:", top_name, "with", top_mark)
+
+#========Part 2===================
+
+class Book:
+    def __init__(self, title, author, price):
+        self.title = title
+        self.author = author
+        self.price = price
+
+    def display_details(self):
+        print("Title:", self.title)
+        print("Author:", self.author)
+        print("Price:", self.price)
+
+
+book1 = Book("BBMIT Crash Course", "Romeo Chinakidzwa", 25.99)
+book2 = Book("UnderGrad", "Tatenda Chinakidzwa", 34.50)
+
+print("\nBook 1 details:")
+book1.display_details()
+
+print("\nBook 2 details:")
+book2.display_details()
+
+print("=================================================")
+print("Question 4")
+print("=================================================")
+
+from datetime import datetime
+from collections import Counter
+
+
+def find_peak_usage(logs):
+    # Return an appropriate result if the list is empty
+    if not logs:
+        return None
+
+    hours = []
+
+    # Convert each timestamp and extract its hour
+    for timestamp in logs:
+        login_time = datetime.fromisoformat(timestamp)
+        hours.append(login_time.hour)
+
+    # Count the number of logins in each hour
+    hour_counts = Counter(hours)
+
+    # Find the highest number of logins
+    highest_count = max(hour_counts.values())
+
+    # Find all hours that have the highest number of logins
+    peak_hours = [
+        hour for hour, count in hour_counts.items()
+        if count == highest_count
+    ]
+
+    # Return the earliest hour if there is a tie
+    return min(peak_hours)
+
+
+# Example login timestamps
+logs = [
+    "2026-08-04T13:21:18",
+    "2026-08-04T13:45:10",
+    "2026-08-04T09:15:20",
+    "2026-08-04T13:55:30",
+    "2026-08-04T09:35:40",
+    "2026-08-04T16:10:00"
+]
+
+peak_hour = find_peak_usage(logs)
+
+print("Peak login hour:", peak_hour)
