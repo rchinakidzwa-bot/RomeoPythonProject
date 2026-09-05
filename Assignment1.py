@@ -10,11 +10,14 @@ while True:
     age_input = input("Enter your age: ")
     try:
         age = int(age_input)
+
         break
+
     except ValueError:
         print("That is not a valid number. Please try again.")
 
-    print("Your age is:", age)
+print(f"Thank you for your age. You are {age} years old.")
+
 
 print("=================================================")
 print("Question 2")
