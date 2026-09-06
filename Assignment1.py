@@ -41,7 +41,7 @@ print("=================================================")
 
 # ---- Part 1: Students and marks ----
 
-students = {"Romeo": 78,"Rob": 85,"Ronny": 92,"Talent": 67,"Miranda": 88}
+students = {"Ronny": 78,"Rob": 85,"Romeo": 92,"Talent": 67,"Miranda": 88}
 
 print("Students and their marks:")
 for name in students:
